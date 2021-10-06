@@ -39,3 +39,13 @@ footer{
 .footer_text{
     color: white;
 }
+
+.footer_foto{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .footer_foto{
+        display: none;
+    }
+}
