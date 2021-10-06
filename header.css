@@ -1,0 +1,23 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_nav ul {
+    display: flex;
+}
+
+.header_nav_item{
+    margin-right: 50px;
+    font-size: 18px;
+}
+
+.header_title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: #233348;
+}

@@ -1,0 +1,17 @@
+.hero_inner{
+    width: 400px;
+    padding-top: 200px;
+}
+
+
+.hero_button{
+    background: #458FF6;
+    border-radius: 55px;
+    color: white;
+    width: 200px;
+    border: 0;
+    padding: 3px 0;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 50px;
+}

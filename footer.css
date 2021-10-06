@@ -1,0 +1,41 @@
+footer{
+    margin-top: 10px;
+    background: linear-gradient(183.41deg, #67C3F3 -8.57%, #5A98F2 82.96%);
+}
+
+.footer_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer_nav ul {
+    display: flex;
+}
+
+.footer_nav_item{
+    margin-right: 50px;
+    font-size: 18px;
+}
+
+.footer_title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+}
+
+.footer_elipse {
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: white;
+    color: #5A98F2;
+    text-align: center;
+}
+
+.footer_text{
+    color: white;
+}
