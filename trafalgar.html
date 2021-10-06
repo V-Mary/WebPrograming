@@ -13,11 +13,14 @@
     <section class="hero">
         <div class="container">
             <header class="header">
+                <div class="header_menu" onclick="toggleMenu()">
+                    <img src="./img/menu-icon.svg" alt="Menu icon">
+                </div>
                 <div class="header_title">
                     <div class="elipse">T</div>
                     <p>Tralangar</p>
                 </div>
-                <nav class="header_nav">
+                <nav id="nav_links" class="header_nav">
                     <ul>
                         <li class="header_nav_item"><a href="">Home</a></li>
                         <li class="header_nav_item"><a href="">Find a doctor</a></li>
@@ -44,13 +47,13 @@
                 </button>
             </div>
             <div>
-                <img src="img/trafalgar-header illustration 1.png" alt="header illustration">
+                <img class="footer_foto" src="img/trafalgar-header illustration 1.png" alt="header illustration">
             </div>
         </div>
     </section>
     <section class="container flex">
         <div>
-            <img src="img/trafalgar-illustration sec02 1.png" alt="provider illustration">
+            <img class="header_foto" src="img/trafalgar-illustration sec02 1.png" alt="provider illustration">
         </div>
         <div class="hero_inner">
             <h1 class="title">
@@ -162,6 +165,7 @@
         </div>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 
 </html>

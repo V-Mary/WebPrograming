@@ -13,8 +13,8 @@
     display: flex; 
     justify-content: space-between;
     flex-wrap: wrap;
-    height: 530px;
-    width: 1000px;
+  
+    width: 80%;
 }
 
 .service_box{

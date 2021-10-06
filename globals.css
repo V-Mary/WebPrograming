@@ -2,7 +2,16 @@ body{
     font-family: Mulish;
     color: #7D7987;
     margin: 0;
+    box-sizing: border-box;
 }
+
+@media screen and ( max-width: 768px) {
+    body{
+        
+        text-align: center;
+    }
+}
+
 
 a{
     text-decoration: none;
@@ -21,6 +30,15 @@ p{
     margin: 0 auto;
     max-width: 1200px;
 }
+
+
+/* @media screen and (max-width: 768px){
+    .container{
+        margin: 0 auto;
+        width: 80%;
+    }
+    
+} */
 
 .title{
     font-weight: bold;
@@ -62,4 +80,14 @@ p{
     font-weight: bold;
     font-size: 18px;
     line-height: 50px;
+}
+
+.button:hover {
+    width: 230px;
+    transition: 2s;
+  }
+
+h1:hover{
+    transform: rotate(1turn);
+    transition: 2s;
 }
