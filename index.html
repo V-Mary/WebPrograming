@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chainsaw</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <form>
+      <h1 class="mb-3">New chainsaw</h1>
+            <div>
+              <label>Name</label>
+              <input id="name_input"/>
+            </div>
+            <div>
+              <label>Power</label>
+              <input id="power_input"/>
+            </div>
+            <div>
+              <label>Price</label>
+              <input id="price_input"/>
+            </div>
+            <button id="submit_button">
+              Submit
+            </button>
+    </form>
+
+    <div  class="all_chainsaw">
+      <h1>All chainsaws</h1>
+
+      <ul id="items_container"></ul>
+
+      <button>Sort all</button>
+      <button>Count all</button>
+
+    </div>
+
+    <div  class="find_chainsaw">
+      <h1>Find chainsaw</h1>
+      <div> 
+        <label class="name">Name</label>
+        <input type="text"/>
+      </div>
+      <button id="search_button">Search</button>
+    </div>
+  </div>
+  <script type="module" src="./js/script.js"></script>
+</body>
+</html>

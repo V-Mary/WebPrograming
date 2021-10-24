@@ -1,0 +1,37 @@
+body{
+  background-color: #F6DDCC ;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+
+.find_chainsaw, .new_chainsaw, .all_chainsaw, .Items{
+  margin: 30px auto;
+}
+
+button{
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
+  background-color: #A04000;
+  color:#F6DDCC ;
+  margin-top: 20px;
+}
+
+h1{
+  color: #6E2C00;
+}
+
+.item-card {
+  max-width: 420px;
+}
+
+.item-container__image {
+  min-height: 200px;
+  max-width: 420px;
+  cursor: pointer;
+}
