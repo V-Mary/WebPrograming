@@ -1,4 +1,14 @@
-const itemsContainer = document.getElementById("container__items");
+import {
+    getInputValues,
+    clearInputs,
+    renderItemsList,
+    addItemToPage,
+    EDIT_BUTTON_PREFIX
+} from "./dom.js";
+
+const formField = document.getElementById("item_form");
+const submitButton = document.getElementById("submit_button");
+
 const searchButton = document.getElementById("search__button");
 const clearSearchButton = document.getElementById("clear__search__button");
 const searchInput = document.getElementById("search__input");
@@ -15,55 +25,60 @@ const CHAINSAW = [
   { id:6, name: "SuperChainsaw", power:400, price:400},
   { id:7, name: "BlaBla", power:480, price:270},
 ]
-
-const getAllChainsaws = () => {
+export const getAllChainsaws = () => {
   return CHAINSAW;
 };
+export const postChainsaws = (body) => {
+    CHAINSAW.push(body);
+}
 
-const getItemId = (id) => `item-${id}`
+export const updateChainsaws = (id, body) => {
+    let index = CHAINSAW.findIndex(idx => idx.id == id);
+    CHAINSAW[index].name = body.name;
+    CHAINSAW[index].power = body.power;
+    CHAINSAW[index].price = body.price;
+}
 
-const itemTemplate = ({id, name, power, price}) => `
-<li id="${getItemId(id)}" class="item-card">
-    <div>
-        <h5>${name}</h5>
-        <p>Power: ${power} V</p>
-        <p>Price: ${price} $</p>
-    </div>
-</li>`;
-
-const addItemToPage = ({id, name, power, price}) => {
-    itemsContainer.insertAdjacentHTML(
-        "afterbegin", 
-        itemTemplate({id, name, power, price})
-    );
-};
-
-const renderItemsList = (items) => {
-    itemsContainer.innerHTML = "";
-
-    for (const item of items) {
-        addItemToPage(item);
-    }
-};
 
 let chainsaws = [];
 
-const refetchAllChainsaws = () => {
+const onEditItem = async (element) => {
+    const itemId = element.target.id.replace(EDIT_BUTTON_PREFIX, "");
+
+    await updateChainsaws(itemId, getInputValues())
+    clearInputs();
+
+    refetchAllChainsaws();
+};
+
+
+export const refetchAllChainsaws = () => {
     const allChainsaws = getAllChainsaws();
 
     chainsaws = allChainsaws.sort((a, b) => b.name.localeCompare(a.name));
 
-    renderItemsList(chainsaws);
+    renderItemsList(chainsaws, onEditItem);
 };
+
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const {name, power, price } = getInputValues();
+
+    clearInputs();
+
+    addItemToPage({name, power, price})
+
+});
 
 searchButton.addEventListener("click", () => {
     const foundChainsaws = chainsaws.filter((chainsaw) => chainsaw.name.search(searchInput.value) !== -1);
 
-    renderItemsList(foundChainsaws);
+    renderItemsList(foundChainsaws, onEditItem);
 });
 
 clearSearchButton.addEventListener('click', () => {
-    renderItemsList(chainsaws);
+    renderItemsList(chainsaws, onEditItem);
 
     searchInput.value = "";
 });
@@ -74,7 +89,7 @@ sortCheckbox.addEventListener("change", function() {
       const sortedChainsaws = chainsaws.sort(
           (a, b) => parseInt(a.price) - parseInt(b.price));
 
-      renderItemsList(sortedChainsaws);
+      renderItemsList(sortedChainsaws, onEditItem);
   } else {
       refetchAllChainsaws();
   }
