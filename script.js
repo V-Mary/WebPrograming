@@ -2,25 +2,19 @@ import {
     getInputValues,
     clearInputs,
     renderItemsList,
-    addItemToPage,
-    EDIT_BUTTON_PREFIX
-} from "./dom.js";
+    EDIT_BUTTON_PREFIX} from "./dom.js";
 
 import  {
-
     postChainsaws,
     getAllChainsaws,
-    updateChainsaws
-}from "./Items.js"
+    updateChainsaws}from "./Items.js"
 
 const submitButton = document.getElementById("submit_button");
-
 const searchButton = document.getElementById("search__button");
 const clearSearchButton = document.getElementById("clear__search__button");
 const searchInput = document.getElementById("search__input");
 const sortCheckbox = document.getElementById("sort__checkbox");
 const countButton = document.getElementById("count__button");
-
 
 let chainsaws = [];
 
@@ -33,15 +27,13 @@ const onEditItem = async (element) => {
     refetchAllChainsaws();
 };
 
+const refetchAllChainsaws = async () => {
+    const allChainsaws = await getAllChainsaws();
 
-export const refetchAllChainsaws = () => {
-    const allChainsaws = getAllChainsaws();
-
-    chainsaws = allChainsaws;
+    chainsaws = allChainsaws.sort((a, b) => b.name.localeCompare(a.name));
 
     renderItemsList(chainsaws, onEditItem);
 };
-
 
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -50,9 +42,10 @@ submitButton.addEventListener("click", (event) => {
 
     clearInputs();
 
-    addItemToPage({name, power,price})
-});
+    postChainsaws({name, power,price});
 
+    refetchAllChainsaws();
+});
 
 searchButton.addEventListener("click", () => {
     const foundChainsaws = chainsaws.filter((chainsaw) => chainsaw.name.search(searchInput.value) !== -1);
@@ -65,7 +58,6 @@ clearSearchButton.addEventListener('click', () => {
 
     searchInput.value = "";
 });
-
 
 sortCheckbox.addEventListener("change", function() {
   if (this.checked) {
