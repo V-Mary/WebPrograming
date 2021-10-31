@@ -7,6 +7,7 @@ import {
 } from "./dom.js";
 
 import  {
+
     postChainsaws,
     getAllChainsaws,
     updateChainsaws
@@ -49,11 +50,7 @@ submitButton.addEventListener("click", (event) => {
 
     clearInputs();
 
-    postChainsaws({
-        name,
-        power,
-        price
-    }).then(refetchAllChainsaws);
+    addItemToPage({name, power,price})
 });
 
 
