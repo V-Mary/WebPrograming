@@ -1,0 +1,12 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: #F6DDCC;
+}
+
+.App-link {
+    color: #61dafb;
+}
