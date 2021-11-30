@@ -1,13 +1,16 @@
 import React from "react";
-import {HeaderStyled} from "./HeaderStyled";
+import {HeaderStyled, NavLinkStyled} from "./HeaderStyled";
 
 export const Header = () => (
     <HeaderStyled>
-        <ul>
-            <li className={"chosen"}>Home</li>
-            <li>Catalog</li>
-            <li>Cart</li>
-        </ul>
+        <NavLinkStyled to={'/'}>
+            Home
+        </NavLinkStyled>
+        <NavLinkStyled to={'/catalog'}>
+            Catalog
+        </NavLinkStyled>
+        <NavLinkStyled to={'/cart'}>
+            Cart
+        </NavLinkStyled>
     </HeaderStyled>
 )
-//змінити як в лайвкодінгу мейбі для 7 лаб
