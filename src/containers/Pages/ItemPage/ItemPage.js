@@ -26,17 +26,19 @@ export const ItemPage = () => {
         return  <h1> Not Found </h1>
     }
 
-
     return (
         <ItemPageStyled>
             <div className="description">
-                <Button onClick={() => {dispatch(addItem(item))}}> To Cart <IconStyled component={ShoppingCartOutlined}/> </Button>
                 <ul>
                     <li>Name: {item.name} </li>
                     <li>Price: {item.price} </li>
                     <li>Power: {item.power} </li>
                 </ul>
+                <Button onClick={() => {dispatch(addItem(item))}}>
+                    Add to cart <IconStyled component={ShoppingCartOutlined}/>
+                </Button>
             </div>
         </ItemPageStyled>
+
     );
 }
